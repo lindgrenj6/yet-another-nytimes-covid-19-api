@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class County < ApplicationRecord
+  include FilteredResponse
+
+  default_scope -> { order(:date) }
+
   class << self
     include ::BulkUpload
 

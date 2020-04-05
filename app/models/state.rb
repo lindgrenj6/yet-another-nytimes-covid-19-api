@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 class State < ApplicationRecord
+  include FilteredResponse
+
+  default_scope -> { order(:date) }
+
   class << self
-    include ::BulkUpload
+    include BulkUpload
 
     def fields_from(fields)
       {
