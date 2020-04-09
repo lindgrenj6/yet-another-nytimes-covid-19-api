@@ -16,7 +16,7 @@ module Filterable
 
     def by_filter(collection)
       if params[:filter]
-        filter = params[:filter].match(/^([a-z]+)(=|>|<|>=|<=){1}([a-z|0-9]+)$/)[1..3]
+        filter = params[:filter].match(/^([a-z]+)(=|>|<|>=|<=){1}([a-z|A-Z|0-9]+)$/)[1..3]
         raise "Invalid Filter #{params[:filter]}" if filter.count != 3
 
         field = filter[0].to_sym
