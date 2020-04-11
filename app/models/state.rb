@@ -14,7 +14,9 @@ class State < ApplicationRecord
         name: fields[1],
         fips: fields[2],
         cases: fields[3],
-        deaths: fields[4]
+        deaths: fields[4],
+        created_at: Time.zone.now,
+        updated_at: Time.zone.now
       }
     end
   end

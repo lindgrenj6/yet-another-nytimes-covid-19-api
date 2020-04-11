@@ -5,10 +5,6 @@ module BulkUpload
     # ignore the header row
     records = csv.lines[1..-1]
 
-    records.each do |record|
-      fields = record.split(',')
-
-      create!(fields_from(fields))
-    end
+    insert_all!(records.map { |record| fields_from(record.split(',')) })
   end
 end

@@ -4,8 +4,10 @@ module BulkUploadable
   extend ActiveSupport::Concern
 
   included do
+    before_action { params.permit(:file) }
+
     def bulk_upload
-      file = File.read(params.require(:file))
+      file = File.read(params[:file])
 
       # clear the current records without callbacks
       model.delete_all

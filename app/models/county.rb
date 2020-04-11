@@ -6,7 +6,7 @@ class County < ApplicationRecord
   default_scope -> { order(:date) }
 
   class << self
-    include ::BulkUpload
+    include BulkUpload
 
     def fields_from(fields)
       {
@@ -15,7 +15,9 @@ class County < ApplicationRecord
         state: fields[2],
         fips: fields[3],
         cases: fields[4],
-        deaths: fields[5]
+        deaths: fields[5],
+        created_at: Time.zone.now,
+        updated_at: Time.zone.now
       }
     end
   end
