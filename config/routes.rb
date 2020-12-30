@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   resources :counties, only: [:index]
   resources :states, only: [:index]
+  resources :uss, only: [:index]
 end
