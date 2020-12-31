@@ -1,24 +1,20 @@
-# README
+# My crappy New York Times Covid19 REST API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A quick (read: hacky) api that can import the data from https://github.com/nytimes/covid-19-data and then serve it.
 
-Things you may want to cover:
+Configure `config/database.yml` to point at your pg database, then run:
 
-* Ruby version
+`rake db:create db:migrate import:states import:us`
 
-* System dependencies
+From there, you can request the data as such:
 
-* Configuration
+| Command | Output |
+| :-----: | :----: |
+| `curl localhost:3000/states` | All output in json by state |
+| `curl localhost:3000/states/nebraska` | Data for a specific state by date |
+| `curl localhost:3000/uss` | Data for the US by date |
 
-* Database creation
+states and uss support `.csv` output as well, so to get a csv spreadsheet just request this:
 
-* Database initialization
+`curl localhost:3000/uss.csv` and it will prompt to download a spreadsheet
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
