@@ -12,9 +12,9 @@ From there, you can request the data as such:
 | :-----: | :----: |
 | `curl localhost:3000/states` | All output in json by state |
 | `curl localhost:3000/states/nebraska` | Data for a specific state by date |
-| `curl localhost:3000/uss` | Data for the US by date |
+| `curl localhost:3000/us` | Data for the US by date |
 
-states and uss support `.csv` output as well, so to get a csv spreadsheet just request this:
+`/states` and `us` support `.csv` output as well, so to get a csv spreadsheet just request this:
 
-`curl localhost:3000/uss.csv` and it will prompt to download a spreadsheet
+`curl localhost:3000/us.csv` and it will prompt to download a spreadsheet
 
