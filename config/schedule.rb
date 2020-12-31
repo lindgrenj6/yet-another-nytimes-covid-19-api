@@ -8,7 +8,7 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 every 1.day do
- rake "import:states" "import:counties" "import:us"
+ rake "import:states" "import:us"
 end
 #
 # every 4.days do
