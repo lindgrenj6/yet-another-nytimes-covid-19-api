@@ -1,8 +1,14 @@
 # frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+def import_data(dataset, model)
+  data = Faraday.get("https://raw.githubusercontent.com/nytimes/covid-19-data/master/#{dataset}").body
+  puts "Fetched new #{data.lines.count} line #{dataset} document from nytimes/covid-19-data repo"
+
+  model.delete_all
+  model.transaction do
+    model.bulk_import(data)
+  end
+end
+
+import_data("us.csv", Us)
+import_data("us-states.csv", State)

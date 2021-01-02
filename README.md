@@ -4,6 +4,10 @@ A quick (read: hacky) api that can import the data from https://github.com/nytim
 
 Configure `config/database.yml` to point at your pg database, then run:
 
+`rake db:setup db:seed`
+
+or alternatively, if you'd rather do it all manually I have created rake tasks for each data type as well:
+
 `rake db:create db:migrate import:states import:us`
 
 From there, you can request the data as such:
